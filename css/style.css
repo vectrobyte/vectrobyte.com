@@ -1,11 +1,278 @@
+.text-currency {
+  font-size: 30px;
+  display: flex;
+  align-items: center;
+}
+.text-currency small {
+  font-size: 50%;
+  font-weight: 600;
+  margin: 0 0.1rem 0.5rem;
+}
+.text-currency svg, .text-currency i {
+  font-size: 60%;
+  font-weight: 600;
+  margin: 0 0.1rem 0.7rem;
+}
+
+.text-small {
+  font-size: small;
+}
+
+.text-regular {
+  font-size: 1.1rem;
+}
+
+.text-medium {
+  font-size: 1.25rem;
+}
+
+.text-large {
+  font-size: 1.4rem;
+}
+
+.text-xl {
+  font-size: 1.5625rem;
+}
+
+.text-2xl {
+  font-size: 2.5rem;
+}
+
+.text-3xl {
+  font-size: 3rem;
+}
+
+.text-bold {
+  font-weight: 700;
+}
+
+a.link:hover {
+  text-decoration: underline !important;
+}
+
+.text-gray-800 {
+  color: #575757;
+}
+
+.border-none {
+  border: none;
+}
+
+.border {
+  border: 1px solid rgba(211, 211, 211, 0.6);
+}
+
+.custom-border-radius {
+  border-radius: 5px;
+}
+
+.border-rounded {
+  border-radius: 50px;
+}
+
+.border-curved {
+  border-radius: 0.5rem;
+}
+
+.clear-radius {
+  border-radius: 0;
+}
+
+.border-primary {
+  border-color: #07a663;
+}
+
+.border-muted {
+  border-color: rgba(108, 117, 125, 0.65) !important;
+}
+
+.h-min {
+  height: min-content;
+}
+
+.h-min-75 {
+  min-height: 75px;
+}
+
+.w-min {
+  width: min-content !important;
+}
+
+.w-max {
+  width: max-content !important;
+}
+
+.w-60 {
+  width: 60% !important;
+}
+
+.w-40 {
+  width: 40% !important;
+}
+
+.w-30 {
+  width: 30% !important;
+}
+
+.w-90 {
+  width: 90% !important;
+}
+
+.w-80 {
+  width: 80% !important;
+}
+
+.w-90 {
+  width: 90% !important;
+}
+
+.w-20 {
+  width: 20% !important;
+}
+
+@media screen and (min-width: 768px) {
+  .w-md-50 {
+    width: 50% !important;
+  }
+}
+.no-resize {
+  resize: none !important;
+}
+
+.flex-auto {
+  flex: 1 1 auto;
+}
+
+.clear-wrap {
+  flex-wrap: nowrap !important;
+}
+
+.d-contents {
+  display: contents !important;
+}
+
+.custom-box-shadow {
+  box-shadow: 0 0 13px 0 rgba(82, 63, 105, 0.05);
+}
+
+@media screen and (min-width: 768px) {
+  .flex-md-reset {
+    flex: unset !important;
+  }
+}
+.cursor-pointer {
+  cursor: pointer !important;
+}
+
 * {
   margin: 0;
   padding: 0;
 }
 
-.social-buttons {
-  height: 30px;
-  width: 30px;
+body {
+  background-color: #fff;
+  font-family: "Roboto", sans-serif;
+}
+
+.main-container {
+  min-height: 100vh;
+}
+
+.info-block .avatar-section {
+  width: 200px;
+  overflow: hidden;
+  border-radius: 50%;
+  box-shadow: 0 5px 16px 3px #828282;
+}
+.info-block .avatar-section img {
+  width: inherit;
+}
+.info-block .initials h1 {
+  font-weight: 400;
+  text-shadow: 1px 0 1px #ccc, 0 1px 1px #eee, 2px 1px 1px #ccc, 1px 2px 1px #eee;
+}
+.info-block .profile-details a {
+  color: #000 !important;
+  text-decoration: none;
+}
+.info-block .profile-details a:hover {
+  color: rgba(0, 0, 0, 0.8) !important;
+}
+.info-block .profile-details a:hover i.fa-envelope {
+  color: #ffbf2f;
+}
+.info-block .profile-details a .social-icons {
+  font-size: 20px;
+}
+.info-block .profile-details a .social-icons.fa-skype {
+  font-size: 21px;
+}
+.info-block .profile-details a .social-icons.fa-map-marker {
+  font-size: 22px;
+}
+.info-block .social-button {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  text-decoration: none;
+}
+.info-block .social-button img {
+  transition: opacity 0.3s;
+}
+.info-block .social-button img:hover {
+  opacity: 0.8;
+}
+.info-block .social-button img.gmail {
+  height: 42px;
+  width: 42px;
+}
+.info-block .social-button img.instagram {
+  height: 36px;
+  width: 36px;
+}
+.info-block .social-button img.fiverr {
+  height: 35px;
+  width: 35px;
+}
+.info-block .social-button i {
+  text-decoration: none;
+  font-size: 40px;
+  transition: color 0.3s;
+}
+.info-block .social-button i.fa-skype {
+  color: #00aff0;
+  font-size: 42px;
+}
+.info-block .social-button i.fa-skype:hover {
+  color: #24c4ff;
+}
+.info-block .social-button i.fa-github-square {
+  color: #333;
+}
+.info-block .social-button i.fa-github-square:hover {
+  color: #4d4d4d;
+}
+.info-block .social-button i.fa-twitter-square {
+  color: #1da1f2;
+}
+.info-block .social-button i.fa-twitter-square:hover {
+  color: #4db5f5;
+}
+.info-block .social-button i.fa-linkedin {
+  color: #0077b5;
+}
+.info-block .social-button i.fa-linkedin:hover {
+  color: #0099e8;
+}
+.info-block .social-button i.fa-facebook-square {
+  color: #3b5998;
+}
+.info-block .social-button i.fa-facebook-square:hover {
+  color: #4c70ba;
+}
+.info-block .bio {
+  max-width: 650px;
+  margin: 0 auto;
 }
 
 /*# sourceMappingURL=style.css.map */

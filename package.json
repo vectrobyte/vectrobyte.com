@@ -1,0 +1,23 @@
+{
+  "name": "vectrobyte.com",
+  "version": "1.0.0",
+  "description": "Static website",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vectrobyte/vectrobyte.com.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vectrobyte/vectrobyte.com/issues"
+  },
+  "homepage": "https://github.com/vectrobyte/vectrobyte.com#readme",
+  "dependencies": {
+    "bootstrap": "^4.3.1"
+  }
+}

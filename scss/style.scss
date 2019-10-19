@@ -1,9 +1,127 @@
+@import "variables";
+@import 'typography';
+@import 'utilities';
+
 * {
   margin: 0;
   padding: 0;
 }
 
-.social-buttons {
-  height: 30px;
-  width: 30px;
+body {
+  background-color: #fff;
+  font-family: 'Roboto', sans-serif;
+}
+
+.main-container {
+  min-height: 100vh;
+}
+
+.info-block {
+  .avatar-section {
+    width: 200px;
+    overflow: hidden;
+    border-radius: 50%;
+    box-shadow: 0 5px 16px 3px #828282;
+    img {
+      width: inherit;
+    }
+  }
+
+  .initials {
+    h1 {
+      font-weight: 400;
+      text-shadow: 1px 0 1px #ccc, 0 1px 1px #eee,
+      2px 1px 1px #ccc, 1px 2px 1px #eee;
+    }
+  }
+
+  .profile-details {
+    a {
+      color: #000 !important;
+      text-decoration: none;
+      &:hover {
+        color: rgba(0, 0, 0, 0.8) !important;
+        i {
+          &.fa-envelope {
+            color: #ffbf2f;
+          }
+
+        }
+      }
+      .social-icons {
+        font-size: 20px;
+        &.fa-skype {
+          font-size: 21px;
+        }
+        &.fa-map-marker {
+          font-size: 22px;
+        }
+      }
+    }
+  }
+  .social-button {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    text-decoration: none;
+    img {
+      transition: opacity 0.3s;
+      &:hover {
+        opacity: 0.8;
+      }
+      &.gmail {
+        height: 42px;
+        width: 42px;
+      }
+      &.instagram {
+        height: 36px;
+        width: 36px;
+      }
+      &.fiverr {
+        height: 35px;
+        width: 35px;
+      }
+    }
+    i {
+      text-decoration: none;
+      font-size: 40px;
+      transition: color 0.3s;
+      &.fa-skype {
+        color: #00aff0;
+        font-size: 42px;
+        &:hover {
+          color: lighten(#00aff0, 10);
+        }
+      }
+      &.fa-github-square {
+        color: #333;
+        &:hover {
+          color: lighten(#333, 10);
+        }
+      }
+      &.fa-twitter-square {
+        color: #1da1f2;
+        &:hover {
+          color: lighten(#1da1f2, 10);
+        }
+      }
+      &.fa-linkedin {
+        color: #0077b5;
+        &:hover {
+          color: lighten(#0077b5, 10);
+        }
+      }
+      &.fa-facebook-square {
+        color: #3b5998;
+        &:hover {
+          color: lighten(#3b5998, 10);
+        }
+      }
+    }
+  }
+
+  .bio {
+    max-width: 650px;
+    margin: 0 auto;
+  }
 }
