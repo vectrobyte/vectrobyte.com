@@ -1,23 +1,29 @@
 {
-  "name": "vectrobyte.com",
+  "name": "dilip-bhattarai-s-portfolio",
   "version": "1.0.0",
-  "description": "Static website",
-  "main": "index.js",
+  "private": true,
+  "description": "dilip-bhattarai-s-portfolio",
+  "author": "Dilip Bhattarai",
+  "keywords": [
+    "gatsby"
+  ],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "develop": "gatsby develop",
+    "start": "gatsby develop",
+    "build": "gatsby build",
+    "serve": "gatsby serve",
+    "clean": "gatsby clean",
+    "typecheck": "tsc --noEmit"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/vectrobyte/vectrobyte.com.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/vectrobyte/vectrobyte.com/issues"
-  },
-  "homepage": "https://github.com/vectrobyte/vectrobyte.com#readme",
   "dependencies": {
-    "bootstrap": "^4.3.1"
+    "gatsby": "^4.14.1",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1"
+  },
+  "devDependencies": {
+    "@types/node": "^17.0.31",
+    "@types/react": "^17.0.44",
+    "@types/react-dom": "^17.0.16",
+    "typescript": "^4.6.4"
   }
 }
