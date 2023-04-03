@@ -5,7 +5,9 @@ const config: GatsbyConfig = {
     title: `Dilip Bhattarai's Portfolio`,
     siteUrl: `https://www.yourdomain.tld`,
   },
-  plugins: [],
+  plugins: [
+    'gatsby-plugin-postcss',
+  ],
 }
 
 export default config
