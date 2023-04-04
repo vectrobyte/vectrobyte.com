@@ -20,7 +20,8 @@
     "gatsby-omni-font-loader": "^2.0.2",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
-    "react-helmet": "^6.1.0"
+    "react-helmet": "^6.1.0",
+    "react-icons": "^4.8.0"
   },
   "devDependencies": {
     "@types/node": "^17.0.31",
