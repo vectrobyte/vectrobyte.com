@@ -6,8 +6,8 @@ import HeroBackground from './svgs/HeroBackground';
 const Hero = () => {
   return (
     <section aria-label="hero" className="relative bg-gray-100 dark:bg-primary">
-      <div className="container mx-auto flex items-end justify-between">
-        <div className="w-1/2 lg:w-3/5 px-4 sm:px-6 lg:px-8">
+      <div className="container mx-auto flex flex-wrap items-end justify-between">
+        <div className="w-full sm:w-1/2 lg:w-3/5 px-4 sm:px-6 lg:px-8">
           <div className="py-32 lg:py-64">
             <div className="">
               <h1 className="text-xl lg:text-3xl mb-2 lg:mb-6 text-gray-700 dark:text-gray-100">
@@ -26,11 +26,11 @@ const Hero = () => {
           </div>
         </div>
 
-        <div className="flex h-full w-1/2 lg:w-2/5 relative z-10 items-end">
+        <div className="hidden lg:flex w-full lg:w-2/5 relative z-10 items-end">
           <img src={me} alt="" />
         </div>
 
-        <HeroBackground className="hidden lg:block absolute w-1/3 top-[-80px] right-[0] text-primary dark:text-gray-100" />
+        <HeroBackground className="hidden sm:block absolute w-1/3 lg:top-[-80px] right-[0] text-primary dark:text-gray-100" />
       </div>
     </section>
   );
