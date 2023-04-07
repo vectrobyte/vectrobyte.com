@@ -8,7 +8,7 @@ type Props = {
 
 const Layout = ({ children }: Props) => {
   return (
-    <div className="bg-white dark:bg-secondary">
+    <div className="bg-white dark:bg-secondary transition-colors">
       <Navbar />
       <main>{children}</main>
     </div>
