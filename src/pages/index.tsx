@@ -1,6 +1,7 @@
 import React from 'react';
 
 import AboutMe from '../components/AboutMe';
+import ContactMe from '../components/ContactMe';
 import Hero from '../components/Hero';
 import Layout from '../layouts';
 
@@ -9,6 +10,7 @@ const IndexPage = () => {
     <Layout>
       <Hero />
       <AboutMe />
+      <ContactMe />
     </Layout>
   );
 };

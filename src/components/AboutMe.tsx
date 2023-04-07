@@ -6,22 +6,22 @@ type AboutMeProps = React.HTMLAttributes<HTMLElement>;
 
 const AboutMe: React.FC<AboutMeProps> = () => {
   return (
-    <section aria-label="about-me" className="py-32">
-      <div className="container mx-auto flex items-center flex-wrap">
-        <div className="hidden lg:block transition-colors w-[350px] px-4 sm:px-6 lg:px-8">
-          <RoundAvatar className="" />
+    <section aria-label="about-me" className="py-16 lg:py-32">
+      <div className="container mx-auto flex flex-wrap xl:items-center">
+        <div className="hidden md:block transition-colors w-[300px] lg:w-[350px] mt-16 xl:mt-0 px-4 sm:px-6 lg:px-8">
+          <RoundAvatar />
         </div>
 
-        <div className="w-full lg:w-[calc(100%-365px)] px-4 sm:px-6 lg:px-8">
-          <div className="text-center lg:text-left">
-            <h1 className="text-3xl lg:text-4xl font-semibold text-gray-800 dark:text-white transition-colors lg:mb-6">
+        <div className="w-full md:w-[calc(100%-300px)] lg:w-[calc(100%-350px)] px-4 sm:px-6 lg:px-8">
+          <div className="text-center md:text-left">
+            <h1 className="text-4xl lg:text-5xl text-gray-800 dark:text-white transition-colors md:mb-6">
               About Me
             </h1>
 
-            <RoundAvatar className="block lg:hidden mx-auto w-[250px] sm:w-[300px] my-10" />
+            <RoundAvatar className="block md:hidden mx-auto w-[250px] sm:w-[300px] my-10" />
           </div>
 
-          <div className="text-gray-600 text-xs lg:text-sm dark:text-gray-300 transition-colors flex flex-col gap-3">
+          <div className="text-gray-600 text-sm lg:text-sm dark:text-gray-300 transition-colors flex flex-col gap-3">
             <p>
               Hi, I&apos;m Dilip Bhattarai, Full-Stack Engineer from Nepal with a passion for
               building robust and scalable solutions using modern technologies.

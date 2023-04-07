@@ -1,6 +1,7 @@
 import React from 'react';
 
 import me from '../asstes/me-vector.png';
+import Button from './base/Button';
 import HeroBackground from './svgs/HeroBackground';
 
 const Hero = () => {
@@ -22,9 +23,7 @@ const Hero = () => {
               <h5 className="lg:text-lg font-light uppercase mb-6 lg:mb-12 dark:text-gray-300 transition-colors">
                 Full-Stack Engineer
               </h5>
-              <button className="bg-primary dark:bg-gray-100 text-white dark:text-primary rounded-full text-base py-3 px-5 transition-colors">
-                Let&apos;s Chat
-              </button>
+              <Button>Hire Me</Button>
             </div>
           </div>
         </div>
