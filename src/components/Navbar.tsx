@@ -25,8 +25,8 @@ const Navbar = () => {
               to="/"
               className="text-2xl font-bold text-gray-800 dark:text-gray-200 transition-colors"
             >
-              <span className="font-semibold">Dilip</span>{' '}
-              <span className="font-thin">Bhattarai</span>
+              <span className="font-semibold">Vectro</span>
+              <span className="font-thin">Byte</span>™
             </Link>
           </div>
 
