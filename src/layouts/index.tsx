@@ -1,6 +1,7 @@
-import React, { ReactNode } from 'react';
+import React, { ReactNode, useEffect } from 'react';
 
 import Navbar from '../components/Navbar';
+import { useLocalStorage } from '../hooks/useLocalStorage';
 
 type Props = {
   children: ReactNode;
@@ -8,7 +9,7 @@ type Props = {
 
 const Layout = ({ children }: Props) => {
   return (
-    <div className="bg-white dark:bg-secondary">
+    <div className="bg-white dark:bg-secondary transition-colors">
       <Navbar />
       <main>{children}</main>
     </div>

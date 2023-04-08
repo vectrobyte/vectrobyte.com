@@ -1,0 +1,10 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"]
+    }
+  },
+  "checkJs": true,
+  "exclude": ["dist", "node_modules", ".cache", "public"]
+}
