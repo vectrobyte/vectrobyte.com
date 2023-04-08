@@ -1,6 +1,6 @@
 import React from 'react';
 
-type TextareaProps = React.HTMLAttributes<HTMLElement>;
+type TextareaProps = React.TextareaHTMLAttributes<HTMLTextAreaElement>;
 
 const Textarea: React.FC<TextareaProps> = ({ className = '', ...props }) => {
   return (
