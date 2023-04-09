@@ -25,7 +25,7 @@ const Hero = () => {
                 Full-Stack Engineer
               </h5>
               <Anchor href="#contact-me">
-                <Button>Contact Me</Button>
+                <Button>Hire Me</Button>
               </Anchor>
             </div>
           </div>
