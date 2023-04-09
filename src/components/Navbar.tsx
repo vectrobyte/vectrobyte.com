@@ -7,7 +7,7 @@ const Navbar = () => {
   const { darkMode, toggleDarkMode } = useDarkMode();
 
   return (
-    <nav className="relative z-10 bg-white dark:bg-secondary transition-colors">
+    <nav id="navbar" className="relative z-10 bg-white dark:bg-secondary transition-colors">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-20">
           <div className="flex-shrink-0 flex items-center">

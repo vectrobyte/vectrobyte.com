@@ -17,7 +17,7 @@ const Footer: React.FC<FooterProps> = () => {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="relative o z-10 bg-white dark:bg-secondary transition-colors">
+    <footer id="footer" className="relative o z-10 bg-white dark:bg-secondary transition-colors">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-3 py-8 lg:py-0 min-h-[70px]">
           <div className="p-3 flex items-center justify-center lg:justify-start">

@@ -1,13 +1,14 @@
 import React from 'react';
 
 import me from '../asstes/me-vector.png';
+import Anchor from './base/Anchor';
 import Button from './base/Button';
 import HeroBackground from './svgs/HeroBackground';
 
 const Hero = () => {
   return (
     <section
-      aria-label="hero"
+      id="hero"
       className="relative bg-gray-100 dark:bg-primary w-full h-full overflow-hidden transition-colors"
     >
       <div className="container mx-auto flex items-end justify-between">
@@ -23,7 +24,9 @@ const Hero = () => {
               <h5 className="lg:text-lg font-light uppercase mb-6 lg:mb-12 dark:text-gray-300 transition-colors">
                 Full-Stack Engineer
               </h5>
-              <Button>Hire Me</Button>
+              <Anchor href="#contact-me">
+                <Button>Contact Me</Button>
+              </Anchor>
             </div>
           </div>
         </div>
