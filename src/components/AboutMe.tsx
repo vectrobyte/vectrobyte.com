@@ -6,7 +6,7 @@ type AboutMeProps = React.HTMLAttributes<HTMLElement>;
 
 const AboutMe: React.FC<AboutMeProps> = () => {
   return (
-    <section aria-label="about-me" className="py-16 lg:py-32">
+    <section id="about-me" className="py-16 lg:py-32">
       <div className="container mx-auto flex flex-wrap xl:items-center">
         <div className="hidden md:block transition-colors w-[300px] lg:w-[350px] mt-16 px-4 sm:px-6 lg:px-8">
           <RoundAvatar />

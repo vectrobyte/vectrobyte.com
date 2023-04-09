@@ -35,7 +35,10 @@ const ContactMe: React.FC<ContactMeProps> = () => {
   };
 
   return (
-    <section className="relative bg-gray-100 dark:bg-primary w-full h-full py-16 lg:py-32 transition-colors">
+    <section
+      id="contact-me"
+      className="relative bg-gray-100 dark:bg-primary w-full h-full py-16 lg:py-32 transition-colors"
+    >
       <div className="container px-4 grid gap-8 grid-cols-1 md:grid-cols-2 lg:px-12 xl:px-16 mx-auto">
         <div className="flex flex-col justify-between">
           <div className="text-center md:text-left">
