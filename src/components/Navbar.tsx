@@ -1,4 +1,3 @@
-import { Link } from 'gatsby';
 import React from 'react';
 import { FaMoon, FaSun } from 'react-icons/fa';
 
@@ -12,13 +11,13 @@ const Navbar = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-20">
           <div className="flex-shrink-0 flex items-center">
-            <Link
-              to="/"
+            <a
+              href="/"
               className="text-2xl font-bold text-gray-800 dark:text-gray-200 transition-colors"
             >
               <span className="font-semibold">Vectro</span>
               <span className="font-thin">Byte</span>™
-            </Link>
+            </a>
           </div>
 
           <div className="flex items-center">
