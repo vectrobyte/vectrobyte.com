@@ -1,7 +1,6 @@
-import React, { ReactNode, useEffect } from 'react';
+import React, { ReactNode } from 'react';
 
 import Navbar from '../components/Navbar';
-import { useLocalStorage } from '../hooks/useLocalStorage';
 
 type Props = {
   children: ReactNode;

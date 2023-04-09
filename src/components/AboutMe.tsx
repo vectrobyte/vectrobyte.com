@@ -8,7 +8,7 @@ const AboutMe: React.FC<AboutMeProps> = () => {
   return (
     <section aria-label="about-me" className="py-16 lg:py-32">
       <div className="container mx-auto flex flex-wrap xl:items-center">
-        <div className="hidden md:block transition-colors w-[300px] lg:w-[350px] mt-16 xl:mt-0 px-4 sm:px-6 lg:px-8">
+        <div className="hidden md:block transition-colors w-[300px] lg:w-[350px] mt-16 px-4 sm:px-6 lg:px-8">
           <RoundAvatar />
         </div>
 
@@ -21,7 +21,7 @@ const AboutMe: React.FC<AboutMeProps> = () => {
             <RoundAvatar className="block md:hidden mx-auto w-[250px] sm:w-[300px] my-10" />
           </div>
 
-          <div className="text-gray-600 text-sm lg:text-sm dark:text-gray-300 transition-colors flex flex-col gap-3">
+          <div className="text-gray-600 text-sm lg:text-base dark:text-gray-300 transition-colors flex flex-col gap-3">
             <p>
               Hi, I&apos;m Dilip Bhattarai, Full-Stack Engineer from Nepal with a passion for
               building robust and scalable solutions using modern technologies.
