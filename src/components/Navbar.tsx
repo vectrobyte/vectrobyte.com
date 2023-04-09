@@ -23,7 +23,7 @@ const Navbar = () => {
           <div className="flex items-center">
             <button
               onClick={toggleDarkMode}
-              className="p-1 rounded-full text-gray-700 dark:text-gray-200 hover:text-gray-900 dark:hover:text-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-all"
+              className="p-1 rounded-full text-xl text-gray-700 dark:text-gray-200 hover:text-gray-900 dark:hover:text-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-all"
               aria-label="Toggle dark mode"
             >
               {darkMode ? <FaSun /> : <FaMoon />}

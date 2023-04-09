@@ -1,3 +1,5 @@
+const colors = require('tailwindcss/colors');
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   mode: 'jit',
@@ -8,6 +10,7 @@ module.exports = {
       colors: {
         primary: '#2B2F32',
         secondary: '#23272A',
+        gray: colors.zinc,
       },
     },
   },
