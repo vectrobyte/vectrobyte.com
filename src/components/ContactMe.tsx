@@ -2,35 +2,69 @@ import React, { useState } from 'react';
 
 type ContactMeProps = React.HTMLAttributes<HTMLElement>;
 
+import { useForm } from 'react-hook-form';
 import { ImPhone } from 'react-icons/im';
 import { SiGmail } from 'react-icons/si';
+import { toast } from 'react-toastify';
 
+import { TOAST_OPTIONS } from '../common/configs';
+import { useRequest } from '../hooks/useRequest';
 import Anchor from './base/Anchor';
 import Button from './base/Button';
 import Textarea from './base/Textarea';
 import TextInput from './base/TextInput';
+import WarningToast from './toasts/WarningToast/WarningToast';
+
+type ContactFormData = {
+  full_name: string;
+  email: string;
+  message: string;
+};
+
+const EMAIL_REGEX =
+  /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
 
 const ContactMe: React.FC<ContactMeProps> = () => {
-  const [loading, setLoading] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const { request } = useRequest();
 
-  const handleSubmit: React.FormEventHandler<HTMLFormElement> = (
-    event: React.FormEvent<HTMLFormElement>
-  ) => {
-    event.preventDefault();
-    setLoading(true);
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    reset,
+    clearErrors,
+  } = useForm<ContactFormData>();
 
-    const myForm = event.target;
-    const formData = new FormData(myForm as HTMLFormElement);
+  const onSubmit = async (data: ContactFormData) => {
+    setSubmitting(true);
 
-    return fetch('/', {
+    const formData = new FormData();
+
+    Object.keys(data).map((key: string) => {
+      formData.append(key, data[key as keyof ContactFormData]);
+    });
+
+    return request('/', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json', Accept: 'application/x-www-form-urlencoded' },
       body: new URLSearchParams(formData as any).toString(),
     })
-      .then(() => alert('Thank you for your submission'))
-      .catch((error) => alert(error))
+      .then(() => {
+        toast(<WarningToast>Thank you for your submission</WarningToast>, TOAST_OPTIONS);
+
+        reset();
+        clearErrors();
+      })
+      .catch((error) => {
+        console.log(error);
+        toast(
+          <WarningToast>Error: {error.message || error.statusText}</WarningToast>,
+          TOAST_OPTIONS
+        );
+      })
       .finally(() => {
-        setLoading(false);
+        setSubmitting(false);
       });
   };
 
@@ -62,23 +96,49 @@ const ContactMe: React.FC<ContactMeProps> = () => {
             </div>
           </div>
         </div>
-        <form name="contact" method="POST" data-netlify="true" onSubmit={handleSubmit}>
+        <form name="contact" method="POST" data-netlify="true" onSubmit={handleSubmit(onSubmit)}>
           <div>
-            <span className="uppercase text-sm dark:text-gray-300 transition-colors">
-              Full Name
-            </span>
-            <TextInput name="full_name" />
+            <TextInput
+              id="full_name"
+              label="Full Name"
+              autoComplete="full_name"
+              placeholder="Enter your Name"
+              {...register('full_name', {
+                required: `Name is required.`,
+              })}
+              error={errors.full_name && errors.full_name?.message}
+            />
           </div>
           <div className="mt-8">
-            <span className="uppercase text-sm dark:text-gray-300 transition-colors">Email</span>
-            <TextInput type="email" name="email" placeholder="" />
+            <TextInput
+              id="email"
+              type="text"
+              label="Email"
+              autoComplete="email"
+              placeholder="Enter a valid email address"
+              {...register('email', {
+                required: `Email is required.`,
+                pattern: {
+                  value: EMAIL_REGEX,
+                  message: 'Email is not formatted properly',
+                },
+              })}
+              error={errors.email && errors.email?.message}
+            />
           </div>
           <div className="mt-8">
-            <span className="uppercase text-sm dark:text-gray-300 transition-colors">Message</span>
-            <Textarea name="message" />
+            <Textarea
+              id="message"
+              label="Message"
+              placeholder="Enter your message"
+              {...register('message', {
+                required: `Message is required.`,
+              })}
+              error={errors.message && errors.message?.message}
+            />
           </div>
           <div className="mt-8">
-            <Button type="submit" loading={loading} className="w-full">
+            <Button type="submit" loading={submitting} className="w-full">
               Send Message
             </Button>
           </div>
