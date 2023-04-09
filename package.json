@@ -23,6 +23,9 @@
     "react-helmet": "^6.1.0",
     "react-icons": "^4.8.0"
   },
+  "engines": {
+    "node": "18.x"
+  },
   "devDependencies": {
     "@types/node": "^17.0.31",
     "@types/react": "^17.0.44",
