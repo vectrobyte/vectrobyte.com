@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 
 type ContactMeProps = React.HTMLAttributes<HTMLElement>;
 
+import { encode } from 'querystring';
 import { useForm } from 'react-hook-form';
 import { ImPhone } from 'react-icons/im';
 import { SiGmail } from 'react-icons/si';
@@ -39,16 +40,13 @@ const ContactMe: React.FC<ContactMeProps> = () => {
   const onSubmit = async (data: ContactFormData) => {
     setSubmitting(true);
 
-    const formData = new FormData();
-
-    Object.keys(data).map((key: string) => {
-      formData.append(key, data[key as keyof ContactFormData]);
-    });
-
     return request('/', {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json', Accept: 'application/x-www-form-urlencoded' },
-      body: new URLSearchParams(formData as any).toString(),
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: encode({
+        'form-name': 'contact-form',
+        ...data,
+      }),
     })
       .then(() => {
         toast(<WarningToast>Thank you for your submission</WarningToast>, TOAST_OPTIONS);
