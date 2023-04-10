@@ -6,7 +6,7 @@ import { Slide, ToastContainer } from 'react-toastify';
 
 const CloseIcon = () => (
   <span>
-    <AiOutlineClose size="14" className="text-gray-600 justify-self-end ml-4" />
+    <AiOutlineClose className="!text-2xl text-gray-600 dark:text-gray-300 justify-self-end ml-4" />
   </span>
 );
 
@@ -16,12 +16,15 @@ const ToastContainerWrapper: React.FC = () => {
       transition={Slide}
       closeButton={CloseIcon}
       toastClassName={() =>
-        `bg-white border-gray-200 dark:bg-dark-800 dark:border-dark-700 text-white min-h-14 flex m-4 p-4 rounded-lg cursor-pointer lg:min-w-560`
+        `flex m-4 p-4 rounded-lg cursor-pointer min-h-14
+         bg-white dark:bg-gray-800  border-gray-200 dark:border-gray-700 dark:text-white
+        `
       }
       toastStyle={{
         boxShadow: '0px 0px 20px 0px rgb(0 0 0 / 18%)',
       }}
       bodyClassName={() => 'flex-1'}
+      className="!w-max !max-w-[80%] lg:!max-w-[800px]"
     />
   );
 };

@@ -20,10 +20,10 @@ const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
           id={inputId}
           name={name}
           className={`
-            w-full min-h-[128px] py-3 px-6 rounded-3xl
+            w-full min-h-[128px] py-3 px-6 rounded-3xl border border-transparent transition-colors
             bg-white dark:bg-secondary dark:text-gray-300 placeholder-gray-400 dark:placeholder-gray-600
             focus:outline-none focus:shadow-outline
-            ${error ? `border-red-600` : ''}
+            ${error ? `!border-red-400` : ''}
             ${className}
           `}
           {...props}

@@ -20,10 +20,10 @@ const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
           id={inputId}
           name={name}
           className={`
-            w-full mt-2 py-3 px-6 rounded-full
+            w-full mt-2 py-3 px-6 rounded-full border border-transparent
             bg-white dark:bg-secondary dark:text-gray-300 placeholder-gray-400 dark:placeholder-gray-600
-            focus:outline-none focus:shadow-outline
-            ${error ? `border-red-600` : ''}
+            focus:outline-none focus:shadow-outline transition-colors
+            ${error ? `!border-red-400` : ''}
             ${className}
           `}
           type="text"
