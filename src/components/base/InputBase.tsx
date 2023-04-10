@@ -20,8 +20,8 @@ const InputBase: React.FC<InputBase> = ({ id, label, error, children, labelClass
       )}
       {children}
       {error && (
-        <span className="text-sm flex items-start text-red-600 my-1 px-6">
-          <AiFillWarning className="text-red-600 dark:text-white mr-1 mt-0.5" size="16" />
+        <span className="text-sm flex items-start text-red-400 my-1 px-6">
+          <AiFillWarning className="mr-1 mt-0.5" size="16" />
           <span>{error}</span>
         </span>
       )}

@@ -1,8 +1,7 @@
-import React, { useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 
 type ContactMeProps = React.HTMLAttributes<HTMLElement>;
 
-import { encode } from 'querystring';
 import { useForm } from 'react-hook-form';
 import { ImPhone } from 'react-icons/im';
 import { SiGmail } from 'react-icons/si';
@@ -14,6 +13,7 @@ import Anchor from './base/Anchor';
 import Button from './base/Button';
 import Textarea from './base/Textarea';
 import TextInput from './base/TextInput';
+import SuccessToast from './toasts/SuccessToast/SuccessToast';
 import WarningToast from './toasts/WarningToast/WarningToast';
 
 type ContactFormData = {
@@ -37,29 +37,24 @@ const ContactMe: React.FC<ContactMeProps> = () => {
     clearErrors,
   } = useForm<ContactFormData>();
 
-  const onSubmit = async (data: ContactFormData) => {
+  const handleClear = useCallback(() => {
+    reset();
+    clearErrors();
+  }, [clearErrors, reset]);
+
+  const onSubmit = (data: ContactFormData) => {
     setSubmitting(true);
 
-    return request('/', {
+    return request('https://formspree.io/f/mlekojpj', {
       method: 'POST',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: encode({
-        'form-name': 'contact-form',
-        ...data,
-      }),
+      body: JSON.stringify(data),
     })
       .then(() => {
-        toast(<WarningToast>Thank you for your submission</WarningToast>, TOAST_OPTIONS);
-
-        reset();
-        clearErrors();
+        toast(<SuccessToast>Thank you for your submission</SuccessToast>, TOAST_OPTIONS);
+        handleClear();
       })
       .catch((error) => {
-        console.log(error);
-        toast(
-          <WarningToast>Error: {error.message || error.statusText}</WarningToast>,
-          TOAST_OPTIONS
-        );
+        toast(<WarningToast>{error.message}</WarningToast>, TOAST_OPTIONS);
       })
       .finally(() => {
         setSubmitting(false);
@@ -94,12 +89,12 @@ const ContactMe: React.FC<ContactMeProps> = () => {
             </div>
           </div>
         </div>
-        <form name="contact" method="POST" data-netlify="true" onSubmit={handleSubmit(onSubmit)}>
+        <form name="contact" autoComplete="off" onSubmit={handleSubmit(onSubmit)}>
           <div>
             <TextInput
               id="full_name"
               label="Full Name"
-              autoComplete="full_name"
+              autoComplete="off"
               placeholder="Enter your Name"
               {...register('full_name', {
                 required: `Name is required.`,
@@ -112,7 +107,7 @@ const ContactMe: React.FC<ContactMeProps> = () => {
               id="email"
               type="text"
               label="Email"
-              autoComplete="email"
+              autoComplete="off"
               placeholder="Enter a valid email address"
               {...register('email', {
                 required: `Email is required.`,
