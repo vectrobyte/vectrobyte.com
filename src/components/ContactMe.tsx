@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 
 type ContactMeProps = React.HTMLAttributes<HTMLElement>;
 
@@ -37,6 +37,11 @@ const ContactMe: React.FC<ContactMeProps> = () => {
     clearErrors,
   } = useForm<ContactFormData>();
 
+  const handleClear = useCallback(() => {
+    reset();
+    clearErrors();
+  }, [clearErrors, reset]);
+
   const onSubmit = (data: ContactFormData) => {
     setSubmitting(true);
 
@@ -46,8 +51,7 @@ const ContactMe: React.FC<ContactMeProps> = () => {
     })
       .then(() => {
         toast(<SuccessToast>Thank you for your submission</SuccessToast>, TOAST_OPTIONS);
-        reset();
-        clearErrors();
+        handleClear();
       })
       .catch((error) => {
         toast(<WarningToast>{error.message}</WarningToast>, TOAST_OPTIONS);
@@ -85,7 +89,7 @@ const ContactMe: React.FC<ContactMeProps> = () => {
             </div>
           </div>
         </div>
-        <form name="contact" onSubmit={handleSubmit(onSubmit)}>
+        <form name="contact" autoComplete="off" onSubmit={handleSubmit(onSubmit)}>
           <div>
             <TextInput
               id="full_name"
