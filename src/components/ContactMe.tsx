@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useCallback, useState } from 'react';
 
 type ContactMeProps = React.HTMLAttributes<HTMLElement>;
 
@@ -7,7 +7,9 @@ import { ImPhone } from 'react-icons/im';
 import { SiGmail } from 'react-icons/si';
 import { toast } from 'react-toastify';
 
+import { FormSpreeError } from '../@types/formspree';
 import { TOAST_OPTIONS } from '../common/configs';
+import RequestError from '../common/errors/RequestError';
 import { useRequest } from '../hooks/useRequest';
 import Anchor from './base/Anchor';
 import Button from './base/Button';
@@ -34,6 +36,7 @@ const ContactMe: React.FC<ContactMeProps> = () => {
     handleSubmit,
     formState: { errors },
     reset,
+    setError,
     clearErrors,
   } = useForm<ContactFormData>();
 
@@ -45,13 +48,30 @@ const ContactMe: React.FC<ContactMeProps> = () => {
   const onSubmit = (data: ContactFormData) => {
     setSubmitting(true);
 
-    return request('https://formspree.io/f/mlekojpj', {
+    return request<ContactFormData>({
+      url: 'https://formspree.io/f/mlekojpj',
       method: 'POST',
-      body: JSON.stringify(data),
+      data,
     })
       .then(() => {
         toast(<SuccessToast>Thank you for your submission</SuccessToast>, TOAST_OPTIONS);
         handleClear();
+      })
+      .catch((err: RequestError) => {
+        if (!err.response) {
+          throw err;
+        }
+
+        const { errors } = err.getResponseData<FormSpreeError<keyof ContactFormData>>();
+
+        if (errors && errors.length) {
+          errors.forEach((error) => {
+            setError(error.field, {
+              type: 'server',
+              message: error.message,
+            });
+          });
+        }
       })
       .catch((error) => {
         toast(<WarningToast>{error.message}</WarningToast>, TOAST_OPTIONS);
@@ -89,7 +109,7 @@ const ContactMe: React.FC<ContactMeProps> = () => {
             </div>
           </div>
         </div>
-        <form name="contact" autoComplete="off" onSubmit={handleSubmit(onSubmit)}>
+        <form name="contact" method="POST" autoComplete="off" onSubmit={handleSubmit(onSubmit)}>
           <div>
             <TextInput
               id="full_name"

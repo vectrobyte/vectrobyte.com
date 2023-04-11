@@ -13,7 +13,7 @@ const useDarkMode = () => {
     } else {
       setTheme('light');
     }
-  }, [theme]);
+  }, [setTheme, theme]);
 
   useEffect(() => {
     if (darkMode) {

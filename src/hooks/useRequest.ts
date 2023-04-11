@@ -1,32 +1,22 @@
+import { AxiosRequestConfig } from 'axios';
 import { useCallback } from 'react';
 
+import request from '../services/request.service';
 import { useAbortController } from './useAbortController';
 
 export function useRequest() {
   const { abort } = useAbortController();
-  const request = useCallback(
-    (input: RequestInfo | URL, init?: RequestInit): Promise<Response> => {
-      const fetchPromise = fetch(input, {
-        ...init,
+
+  const requestCall = useCallback(
+    <T>(configs?: AxiosRequestConfig<T>) => {
+      const fetchPromise = request({
+        ...configs,
         headers: {
           'Content-Type': 'application/json',
           Accept: 'application/json',
-          ...init?.headers,
+          ...configs?.headers,
         },
-      })
-        .then((response) => {
-          if (response.ok) {
-            return response;
-          }
-
-          throw response;
-        })
-        .catch((error) => {
-          error.message = `Error: ${
-            error.error || error.message || error.statusText || 'An unknown error occurred!'
-          }`;
-          throw error;
-        });
+      });
 
       abort();
 
@@ -42,5 +32,5 @@ export function useRequest() {
     [abort]
   );
 
-  return { request };
+  return { request: requestCall };
 }
