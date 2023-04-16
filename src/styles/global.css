@@ -6,3 +6,6 @@ body {
   font-family: "Open Sans", sans-serif;
 }
 
+.flex-center {
+  @apply flex items-center justify-center;
+}
