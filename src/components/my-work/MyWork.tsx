@@ -8,7 +8,7 @@ const MyWork: React.FC<MyProjectsProps> = () => {
       <div className="container mx-auto">
         <div className="text-center">
           <h1 className="text-4xl lg:text-5xl text-gray-800 dark:text-white transition-colors md:mb-6">
-            My Work
+            Recent Works
           </h1>
           <p className="font-light text-xl lg:text-2xl mb-20 dark:text-gray-300">
             Here are a few past projects I&apos;ve worked on:

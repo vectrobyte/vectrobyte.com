@@ -14,7 +14,7 @@ const MyClients: React.FC<MyClientsProps> = () => {
       <div className="container mx-auto">
         <div className="text-center">
           <h1 className="text-4xl lg:text-5xl text-gray-800 dark:text-white transition-colors md:mb-6">
-            My Work
+            Clients
           </h1>
           <p className="font-light text-xl lg:text-2xl mb-20 dark:text-gray-300">
             I&apos;m proud to have collaborated with some awesome clients:
@@ -27,7 +27,7 @@ const MyClients: React.FC<MyClientsProps> = () => {
                   <img
                     src={steer}
                     alt=""
-                    className="h-10 lg:h-20 grayscale transition-all hover:grayscale-0 duration-1000"
+                    className="h-12 lg:h-16 grayscale transition-all hover:grayscale-0 duration-600"
                   />
                 </Anchor>
               </div>
@@ -36,7 +36,7 @@ const MyClients: React.FC<MyClientsProps> = () => {
                   <img
                     src={kindship}
                     alt=""
-                    className="h-12 lg:h-24 rounded-full grayscale transition-all hover:grayscale-0 duration-1000"
+                    className="h-14 lg:h-18 rounded-full grayscale transition-all hover:grayscale-0 duration-600"
                   />
                 </Anchor>
               </div>
@@ -45,7 +45,7 @@ const MyClients: React.FC<MyClientsProps> = () => {
                   <img
                     src={cixware}
                     alt=""
-                    className="h-12 lg:h-24 rounded-full grayscale transition-all hover:grayscale-0 duration-1000"
+                    className="h-14 lg:h-18 rounded-full grayscale transition-all hover:grayscale-0 duration-600"
                   />
                 </Anchor>
               </div>
@@ -54,7 +54,7 @@ const MyClients: React.FC<MyClientsProps> = () => {
                   <img
                     src={ytech}
                     alt=""
-                    className="h-12 lg:h-24 grayscale transition-all hover:grayscale-0 duration-1000"
+                    className="h-14 lg:h-18 grayscale transition-all hover:grayscale-0 duration-600"
                   />
                 </Anchor>
               </div>
