@@ -10,6 +10,9 @@ const MyWork: React.FC<MyProjectsProps> = () => {
           <h1 className="text-4xl lg:text-5xl text-gray-800 dark:text-white transition-colors md:mb-6">
             My Work
           </h1>
+          <p className="font-light text-xl lg:text-2xl mb-20 dark:text-gray-300">
+            Here are a few past projects I&apos;ve worked on:
+          </p>
         </div>
       </div>
     </section>
