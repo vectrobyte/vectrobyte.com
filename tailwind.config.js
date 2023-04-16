@@ -12,6 +12,9 @@ module.exports = {
         secondary: '#23272A',
         gray: colors.zinc,
       },
+      spacing: {
+        '18': '4.5rem',
+      }
     },
   },
   variants: {
